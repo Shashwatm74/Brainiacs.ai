@@ -1,0 +1,14 @@
+@import 'abstract/variable';
+@import 'abstract/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    background: $primary-color;
+
+
+}
+
+html {
+    overflow-x: hidden;
+}

@@ -1,0 +1,121 @@
+@import "@/styles/abstract/mixin";
+@import "@/styles/abstract/variable";
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text&display=swap");
+
+.about {
+  @include section;
+  justify-items: center;
+  column-gap: 1em;
+}
+
+.sectionWrapper {
+  @include sectionWrapper;
+  column-gap: 1em;
+  // background: url(./bg-about.jpeg), lightgray 50% / cover no-repeat;
+}
+
+
+.heading {
+
+  font-family: $primary-font;
+  font-size: 5em;
+  margin: 20px;
+  margin-left: 85px;
+  grid-column: 1/ span 6;
+  grid-row: 7 / span 20;
+  color: $secondary-color;
+}
+
+.content {
+  grid-column: 1/ span 12;
+  grid-row: 26 / span 14;
+  color: $secondary-color;
+  font-family: $primary-font;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5 {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  margin-top: 250px;
+  width: 13em;
+  margin-left: 0px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: $secondary-color;
+  font-family: $primary-font;
+  // background: linear-gradient(to top, black, white 100%);
+}
+
+.card1 {
+  grid-row: 45/span 35;
+  grid-column: 2/span 2;
+}
+
+.card2 {
+  grid-row: 45/span 35;
+  grid-column: 5/span 2;
+
+}
+
+.card3 {
+  grid-row: 45/span 35;
+  grid-column: 8/span 2;
+  visibility: visible;
+  opacity: 1;
+
+}
+
+.card4 {
+  grid-row: 45/span 35;
+  grid-column: 11/span 2;
+
+}
+
+.linkcard1,
+.linkcard2,
+.linkcard3,
+.linkcard4,
+.linkcard5 {
+  width: 13em;
+  margin-left: 0px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: $secondary-color;
+  font-family: $primary-font;
+  background: linear-gradient(to top, black, white 100%);
+  transform: translate(-50px, 0);
+}
+
+.linkcard1 {
+  grid-row: 45/span 35;
+  grid-column: 2/span 2;
+}
+
+.linkcard2 {
+  grid-row: 45/span 35;
+  grid-column: 5/span 2;
+
+}
+
+.linkcard3 {
+  grid-row: 45/span 35;
+  grid-column: 8/span 2;
+
+}
+
+.linkcard4 {
+  grid-row: 45/span 35;
+  grid-column: 11/span 2;
+}
+
+.aboutimg {
+  height: 13em;
+  width: 13em;
+}

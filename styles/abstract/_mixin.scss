@@ -1,0 +1,184 @@
+@mixin section {
+    height: max(700px, 100vh);
+    // display: flex;
+    justify-content: center;
+    scroll-margin-top: 3.6em;
+    overflow: hidden;
+}
+
+@mixin sectionWrapper {
+    @media (max-width: 600px) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(200, 8px);
+        width: 100%;
+    }
+
+    @media (min-width: 600px) {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(200, 8px);
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(200, 8px);
+        width: 100%;
+    }
+}
+
+//NAV
+@mixin nav-font {
+    text-decoration: none;
+    font-family: $primary-font;
+    font-weight: 600;
+    color: $secondary-color;
+    user-select: none;
+    font-size: 1.5em;
+}
+
+@mixin nav-font-white {
+    text-decoration: none;
+    font-family: $primary-font;
+    font-weight: 600;
+    color: $primary-color;
+    user-select: none;
+    font-size: 1.5em;
+}
+
+@mixin secondary-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: right;
+    z-index: 999;
+    height: auto;
+    width: 200px;
+    gap: 1em;
+    top: 0;
+    border-radius: 8px;
+    padding: 1em;
+    padding-left: 2em;
+    box-shadow: 0px 0px 12px 0px $secondary-color;
+    background-color: $secondary-color;
+}
+
+@mixin profile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: right;
+    z-index: 999;
+    height: auto;
+    width: 200px;
+    gap: 1em;
+    top: 0;
+    border-radius: 8px;
+    padding: 1em;
+    padding-left: 2em;
+    box-shadow: 0px 0px 12px 0px $primary-color;
+    background-color: $primary-color;
+}
+
+@mixin navbtn {
+    font-family: $primary-font;
+    font-size: 0.75rem;
+    background: none;
+    border: 0.175em solid $secondary-color;
+    padding: 0.7em 2.3em;
+    color: $secondary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    border-radius: 1.5em;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    border-color: $secondary-color;
+    color: $secondary-color;
+
+    background: {
+        image: linear-gradient(45deg, transparent 50%, $secondary-color 50%);
+        position: 25%;
+        size: 400%;
+    }
+
+    transition: background 500ms ease-in-out,
+    color 500ms ease-in-out;
+
+    &:hover {
+        color: $primary-color;
+
+        background: {
+            position: 100%;
+        }
+    }
+}
+
+@mixin navbtn-white {
+    font-family: $secondary-color;
+    font-size: 0.75rem;
+    background: none;
+    border: 0.175em solid $primary-color;
+    padding: 0.7em 2.3em;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    border-radius: 1.5em;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    border-color: $primary-color;
+    color: $primary-color;
+
+    background: {
+        image: linear-gradient(45deg, transparent 50%, $primary-color 50%);
+        position: 25%;
+        size: 400%;
+    }
+
+    transition: background 500ms ease-in-out,
+    color 500ms ease-in-out;
+
+    &:hover {
+        color: $secondary-color;
+
+        background: {
+            position: 100%;
+        }
+    }
+}
+
+//dashboard
+
+
+@mixin dashboard_cards {
+    border-radius: 8px;
+    position: relative;
+    background-color: $primary-color;
+}
+
+@mixin dashboard_section_wrapper {
+    margin-bottom: 15px;
+    margin-top: 32px;
+    height: 92vh;
+
+    @media(min-width:300px) {
+        width: 92%;
+        margin-left: 47px;
+        margin-top: 70px;
+        margin-right: 5px;
+    }
+
+    @media (min-width:1300px)and (min-height:413px) {
+        margin-left: 320px;
+    }
+
+}

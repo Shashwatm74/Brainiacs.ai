@@ -1,7 +1,9 @@
 {
-  "name": "brainiacs.ai",
+  "name": "legal-ai",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
+  "proxy2": "http://localhost:5001",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,12 +11,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.1",
+    "@geist-ui/react": "^2.2.5",
+    "@geist-ui/react-icons": "^1.0.1",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.4.19",
+    "firebase": "^10.4.0",
+    "gsap": "^3.12.2",
+    "next": "^13.4.19",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "eslint": "8.52.0",
-    "eslint-config-next": "14.0.1"
+    "react-dom": "18.2.0",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.1",
+    "sass": "^1.67.0"
   }
 }
