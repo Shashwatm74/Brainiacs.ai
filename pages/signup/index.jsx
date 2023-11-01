@@ -4,41 +4,29 @@ import styles from "@/styles/components/login_and_signup_page/Signup.module.scss
 import Head from "next/head";
 import logo from "@/assets/images/logo.png";
 import Image from "next/image";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebaseConfig";
 import Link from "next/link";
 import { Redirect } from "next";
 import { useRouter } from 'next/router';
-// const auth = useAuth()
-//<button onClick = {(e) => auth.signinwithGoogle()}>SingIN</button>
+import supabase from '@/lib/db/supabase';
+import signInWithPassword from '@/lib/hooks/AuthHook';
+import signInWithGoogle from '@/lib/hooks/AuthHook';
+
 function SignUp() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
+  async function signUpNewUser() {
+    const { data, error } = await supabase.auth.signUp({
+      email: 'example@email.com',
+      password: 'example-password',
+      options: {
+        redirectTo: 'https//example.com/welcome'
+      }
+    })
+  }
 
-  const [password, setPassword] = useState("");
+  async function signOut() {
+    const { error } = await supabase.auth.signOut()
+  }
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSignUp = (e) => {
-    //e.preventDefault();
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        document.getElementById("message").innerHTML = "Registration successful ,redirecting to Login...";
-        setTimeout(() => {
-          router.push('/login');
-        }, 1000);
-      })
-      .catch((error) => {
-        document.getElementById("message").innerHTML = error.message;
-      });
-  };
   return (
     <>
       <Head>
@@ -76,7 +64,7 @@ function SignUp() {
               required
               type="email"
               value={email}
-              onChange={handleEmailChange}
+              onChange={signUpNewUser}
             />
             {/* <div className={styles.signup_ele_head}>User Name</div>
             <input
