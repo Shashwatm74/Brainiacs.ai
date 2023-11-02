@@ -1,31 +1,46 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "@/styles/components/login_and_signup_page/Signup.module.scss";
 import Head from "next/head";
-import logo from "@/assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { Redirect } from "next";
 import { useRouter } from 'next/router';
-import supabase from '@/lib/db/supabase';
-import signInWithPassword from '@/lib/hooks/AuthHook';
-import signInWithGoogle from '@/lib/hooks/AuthHook';
+import "@/lib/hooks/AuthHook";
 
 function SignUp() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  async function signUpNewUser() {
-    const { data, error } = await supabase.auth.signUp({
-      email: 'example@email.com',
-      password: 'example-password',
-      options: {
-        redirectTo: 'https//example.com/welcome'
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { user, error } = await supabase.auth.signUp({
+        email,
+        password
+      });
+
+      if (error) {
+        setMessage(error.message);
+      } else {
+        setMessage("Sign up successful, redirecting to home...");
+        setTimeout(() => {
+          router.push('/');
+        }, 1000);
       }
-    })
-  }
-
-  async function signOut() {
-    const { error } = await supabase.auth.signOut()
-  }
+    } catch (error) {
+      setMessage(error.message);
+    }
+  };
 
   return (
     <>
@@ -41,22 +56,6 @@ function SignUp() {
             <div>
               <span className={styles.span_heading}>Sign Up</span>
             </div>
-            {/* <div className={styles.signup_ele_head}>Name</div> */}
-            {/* <div className={styles.nameFeild}>
-
-              <input
-                className={styles.input_box}
-                placeholder="Enter first name..."
-                required
-                type="text"
-              />
-              <input
-                className={styles.input_box}
-                placeholder="Enter last name..."
-                required
-                type="text"
-              />
-            </div> */}
             <div className={styles.signup_ele_head}>Email</div>
             <input
               className={styles.input_box}
@@ -64,14 +63,8 @@ function SignUp() {
               required
               type="email"
               value={email}
-              onChange={signUpNewUser}
+              onChange={handleEmailChange}
             />
-            {/* <div className={styles.signup_ele_head}>User Name</div>
-            <input
-              className={styles.input_box}
-              placeholder="Enter user name..."
-              required
-            /> */}
             <div className={styles.signup_ele_head}>Password</div>
             <input
               className={styles.input_box}
@@ -81,23 +74,13 @@ function SignUp() {
               value={password}
               onChange={handlePasswordChange}
             />
-            {/* ........................................... */}
 
-            <div className={styles.messages} id="message"></div>
+            <div className={styles.messages} id="message">{message}</div>
 
-
-            {/* ............................................. */}
             <form
               className={styles.form}
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSignUp();
-              }}
+              onSubmit={handleSignUp}
             >
-
-
-
-
               <button className={styles.submit_button} type="submit">
                 Submit
               </button>
@@ -114,7 +97,7 @@ function SignUp() {
             </div>
           </div>
           <div className={styles.signupImage}>
-            <Image src={logo} alt="logo" layout="responsive" />
+            {/* Your logo image */}
           </div>
         </div>
       </section>
