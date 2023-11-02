@@ -3,14 +3,15 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '@/styles/components/nav.module.scss';
 import navtoggle from '@/components/navtoggle.js';
+import supabase from '@/lib/db/supabase';
+import { useAuth } from '@/lib/hooks/AuthHook';
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Image from 'next/image';
-import menuImage from '@/assets/images/menu.png';
-import pfp from '@/assets/images/defaultPfp.png';
-
 
 const Nav = () => {
+    const signOut = async () => {
+        await supabase.auth.signOut()
+    }
     return (
         <>
 
@@ -26,11 +27,11 @@ const Nav = () => {
                     <nav className={styles.nav2} id='SecondaryNav' data-visible="false">
                         <ul >
                             {/* this part of the navbar activates before the user logs in the website  */}
-                            <Link className={styles.a} href="/signup" replace onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele1" className={styles.listElement}>
-                                    Sign up
-                                </li>
-                            </Link>
+                            <button className={styles.a} onClick={signOut} >
+                                <h1>
+                                    Sign out
+                                </h1>
+                            </button>
 
                             <Link className={styles.a} href="/login" replace onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
                                 <li id="listele2" className={styles.listElement}>

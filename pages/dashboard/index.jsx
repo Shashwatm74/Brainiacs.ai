@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useAuth } from "@/lib/hooks/AuthHook";
 function Dashboard() {
     return (
         <>
-            <h1>DASHBOARD</h1>
+            <useAuth>
+                <h1>DASHBOARD</h1>
+            </useAuth>
         </>
     );
 }
