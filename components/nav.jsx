@@ -38,38 +38,10 @@ const Nav = () => {
                                 </li>
                             </Link>
                             {/* this part of the navbar activates when the user logs in the website  */}
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele3" className={styles.listElementonlogin}>
-                                    Function1
-                                </li>
-                            </Link>
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele4" className={styles.listElementonlogin}>
-                                    Function2
-                                </li>
-                            </Link>
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele5" className={styles.listElementonlogin}>
-                                    Function3
-                                </li>
-                            </Link>
-
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele6" className={styles.listElementonlogin}>
-                                    Function4
-                                </li>
-                            </Link>
 
                             <Link className={styles.a} href="/" replace onClick={() => {
                                 document.getElementById("SecondaryNav").setAttribute("data-visible", "false");
                                 document.getElementById("NavToggle2")?.setAttribute("data-visible", "false");
-                                document.getElementById("listele1").setAttribute("login", "false");
-                                document.getElementById("listele2").setAttribute("login", "false");
-                                document.getElementById("listele3").setAttribute("login", "false");
-                                document.getElementById("listele4").setAttribute("login", "false");
-                                document.getElementById("listele5").setAttribute("login", "false");
-                                document.getElementById("listele6").setAttribute("login", "false");
-                                document.getElementById("listele7").setAttribute("login", "false");
                             }} >
                                 <li id="listele7" className={styles.listElementonlogin}>
                                     Sign out
