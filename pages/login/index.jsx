@@ -1,44 +1,51 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from "@/styles/components/login_and_signup_page/Login.module.scss";
 import Head from "next/head";
 import logo from "@/assets/images/logo.png";
 import Image from "next/image";
-import { auth } from "../firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import Link from "next/link";
-import { useRouter } from 'next/router';
-function login() {
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  'https://rgwdpaftxvnlowpidlmf.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJnd2RwYWZ0eHZubG93cGlkbG1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg4NjY1OTgsImV4cCI6MjAxNDQ0MjU5OH0.9V__7Ij3SLzBkmKfIaAkzjSyTS79R8o-NZ_lNyZ8j28'
+);
+
+function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
-  const [password, setPassword] = useState("");
-
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  const handleSignIn = (e) => {
-    //e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        document.getElementById("message").innerHTML = "Login successful, redirecting to home...";
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { user, error } = await supabase.auth.signIn({
+        email,
+        password
+      });
+
+      if (error) {
+        setMessage(error.message);
+      } else {
+        setMessage("Login successful, redirecting to home...");
         setTimeout(() => {
           router.push('/');
         }, 1000);
-        document.getElementById("listele1").setAttribute("login", "true");
-        document.getElementById("listele2").setAttribute("login", "true");
-        document.getElementById("listele3").setAttribute("login", "true");
-        document.getElementById("listele4").setAttribute("login", "true");
-        document.getElementById("listele5").setAttribute("login", "true");
-        document.getElementById("listele6").setAttribute("login", "true");
-        document.getElementById("listele7").setAttribute("login", "true");
-      }).catch((error) => {
-        document.getElementById("message").innerHTML = error.message;
-      })
+      }
+    } catch (error) {
+      setMessage(error.message);
+    }
   };
 
   return (
@@ -55,22 +62,6 @@ function login() {
             <div>
               <span className={styles.span_heading}>Login</span>
             </div>
-            {/* <div className={styles.login_ele_head}>Name</div> */}
-            {/* <div className={styles.nameFeild}>
-
-              <input
-                className={styles.input_box}
-                placeholder="Enter first name..."
-                required
-                type="text"
-              />
-              <input
-                className={styles.input_box}
-                placeholder="Enter last name..."
-                required
-                type="text"
-              />
-            </div> */}
             <div className={styles.login_ele_head}>Email</div>
             <input
               className={styles.input_box}
@@ -80,12 +71,6 @@ function login() {
               value={email}
               onChange={handleEmailChange}
             />
-            {/* <div className={styles.login_ele_head}>User Name</div>
-            <input
-              className={styles.input_box}
-              placeholder="Enter user name..."
-              required
-            /> */}
             <div className={styles.login_ele_head}>Password</div>
             <input
               className={styles.input_box}
@@ -95,21 +80,13 @@ function login() {
               value={password}
               onChange={handlePasswordChange}
             />
-            {/* ........................................... */}
 
-            <div className={styles.messages} id="message"></div>
+            <div className={styles.messages} id="message">{message}</div>
 
-
-            {/* ............................................. */}
             <form
               className={styles.form}
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSignIn();
-              }}
+              onSubmit={handleSignIn}
             >
-              <div className={styles.message} id="message"></div>
-              {/* ... */}
               <button className={styles.submit_button} type="submit">
                 Submit
               </button>
@@ -134,4 +111,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;
