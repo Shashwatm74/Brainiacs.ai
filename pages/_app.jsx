@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
       <>
         <Nav />
         <Component {...pageProps} />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <Footer />
 
       </>

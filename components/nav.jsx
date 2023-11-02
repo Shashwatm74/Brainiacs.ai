@@ -3,6 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '@/styles/components/nav.module.scss';
 import navtoggle from '@/components/navtoggle.js';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import Image from 'next/image';
 import menuImage from '@/assets/images/menu.png';
 import pfp from '@/assets/images/defaultPfp.png';

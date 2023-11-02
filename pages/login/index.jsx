@@ -1,48 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styles from "@/styles/components/login_and_signup_page/Login.module.scss";
 import Head from "next/head";
 import logo from "@/assets/images/logo.png";
 import Image from "next/image";
-import { useAuth } from "@/lib/hooks/AuthHook"; // Import useAuth hook
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import supabase from '@/lib/db/supabase';
+import { useAuth } from '@/lib/hooks/AuthHook';
 
 function Login() {
-  const { signInWithPassword } = useAuth(); // Use signInWithPassword function from the hook
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
+  const LoginWithSupa = async (username, password) => {
+    const res = await supabase.auth.signInWithPassword({
+      email: username,
+      password: password,
+    });
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+    if (res.error) {
+      console.log("err");
+      // console.log(res.error.message);
+    }
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
-
-    try {
-      const { user, error } = await signInWithPassword(email, password); // Call signInWithPassword function
-
-      if (error) {
-        setMessage(error.message);
-      } else {
-        setMessage("Login successful, redirecting to home...");
-        setTimeout(() => {
-          router.push('/');
-        }, 1000);
-      }
-    } catch (error) {
-      setMessage(error.message);
+    if (res.data.user?.aud === 'authenticated') {
+      router.push("/");
     }
   };
+
+  useEffect(() => {
+    const CheckLogin = async () => {
+      const ses = await supabase.auth.getSession();
+      if (ses.data.session) {
+        router.push('/dashboard');
+      }
+    };
+    CheckLogin();
+    setLoading(false);
+  }, [supabase]);
+
+  const signInWithGoogle = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: 'google'
+    })
+  }
+
+  if (loading) {
+    return (<>...Loading</>)
+  }
 
   return (
     <>
       <Head>
-        <title>Legal.ai</title>
+        <title>Title.ai</title>
         <meta name="description" content="AI based legal assistant" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -59,8 +72,8 @@ function Login() {
               placeholder="Enter email..."
               required
               type="email"
-              value={email}
-              onChange={handleEmailChange}
+            // value={email}
+            // onChange={handleEmailChange}
             />
             <div className={styles.login_ele_head}>Password</div>
             <input
@@ -68,15 +81,15 @@ function Login() {
               placeholder="Enter password.."
               required
               type="password"
-              value={password}
-              onChange={handlePasswordChange}
+            // value={password}
+            // onChange={handlePasswordChange}
             />
 
-            <div className={styles.messages} id="message">{message}</div>
+            {/* <div className={styles.messages} id="message">{message}</div> */}
 
             <form
               className={styles.form}
-              onSubmit={handleSignIn}
+            // onSubmit={handleSignIn}
             >
               <button className={styles.submit_button} type="submit">
                 Submit
@@ -90,7 +103,7 @@ function Login() {
             </div>
             <div className={styles.additional_options}>
               Sign up with{" "}
-              <button onClick={async() => {await.supabase.auth.signInWithOAuth({provider: 'google'})}} className={styles.google_button}>google</button>
+              <button onClick={signInWithGoogle} className={styles.google_button}>google</button>
             </div>
           </div>
           <div className={styles.loginImage}>
