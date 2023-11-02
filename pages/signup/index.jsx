@@ -4,12 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  'https://rgwdpaftxvnlowpidlmf.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJnd2RwYWZ0eHZubG93cGlkbG1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg4NjY1OTgsImV4cCI6MjAxNDQ0MjU5OH0.9V__7Ij3SLzBkmKfIaAkzjSyTS79R8o-NZ_lNyZ8j28'
-);
+import "@/lib/hooks/AuthHook";
 
 function SignUp() {
   const router = useRouter();

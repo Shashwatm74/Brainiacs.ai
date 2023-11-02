@@ -5,12 +5,8 @@ import styles from "@/styles/components/login_and_signup_page/Login.module.scss"
 import Head from "next/head";
 import logo from "@/assets/images/logo.png";
 import Image from "next/image";
-import { createClient } from '@supabase/supabase-js';
+import "@/lib/hooks/AuthHook";
 
-const supabase = createClient(
-  'https://rgwdpaftxvnlowpidlmf.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJnd2RwYWZ0eHZubG93cGlkbG1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTg4NjY1OTgsImV4cCI6MjAxNDQ0MjU5OH0.9V__7Ij3SLzBkmKfIaAkzjSyTS79R8o-NZ_lNyZ8j28'
-);
 
 function Login() {
   const router = useRouter();
@@ -30,7 +26,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const { user, error } = await supabase.auth.signIn({
+      const { user, error } = await signInWithPassword({
         email,
         password
       });
