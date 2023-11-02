@@ -90,7 +90,7 @@ function Login() {
             </div>
             <div className={styles.additional_options}>
               Sign up with{" "}
-              <button className={styles.google_button}>google</button>
+              <button onClick={async() => {await.supabase.auth.signInWithOAuth({provider: 'google'})}} className={styles.google_button}>google</button>
             </div>
           </div>
           <div className={styles.loginImage}>
