@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from "next/link";
 import styles from "@/styles/components/login_and_signup_page/Login.module.scss";
 import Head from "next/head";
 import logo from "@/assets/images/logo.png";
 import Image from "next/image";
-import "@/lib/hooks/AuthHook";
-
+import { useAuth } from "@/lib/hooks/AuthHook"; // Import useAuth hook
 
 function Login() {
-  const router = useRouter();
+  const { signInWithPassword } = useAuth(); // Use signInWithPassword function from the hook
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -26,10 +24,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const { user, error } = await signInWithPassword({
-        email,
-        password
-      });
+      const { user, error } = await signInWithPassword(email, password); // Call signInWithPassword function
 
       if (error) {
         setMessage(error.message);
@@ -95,7 +90,7 @@ function Login() {
             </div>
             <div className={styles.additional_options}>
               Sign up with{" "}
-              <button className={styles.google_button}>google</button>
+              <button onClick={async() => {await.supabase.auth.signInWithOAuth({provider: 'google'})}} className={styles.google_button}>google</button>
             </div>
           </div>
           <div className={styles.loginImage}>
