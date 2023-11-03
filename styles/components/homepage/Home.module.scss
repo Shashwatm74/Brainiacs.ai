@@ -15,7 +15,19 @@
     background: url(./homepagebg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
 
+.sectionWrapper:hover,
+.sectionWrapper:focus {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .homeImage {
@@ -26,16 +38,16 @@
 }
 
 .title {
-    grid-row: 30 /span 30;
-    grid-column: 2 /span 4;
+    grid-row: 30/ span 30;
+    grid-column: 4/span 6;
     transform: translate(-50px, 0);
     background: transparent;
-
+    transition: all 0.5 ease-in-out;
 }
 
 .title>h1 {
     font-family: $primary-font;
-    color: $secondary-color;
+    color: $primary-color;
     font-size: 7.2em;
     font-weight: 100;
     background: transparent;
@@ -43,7 +55,7 @@
 
 .title>p {
     font-family: $primary-font;
-    color: $secondary-color;
+    color: $primary-color;
     font-size: 1.7em;
     font-weight: 100;
     margin-left: 10px;
