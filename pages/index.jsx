@@ -4,7 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import Homepage from "./home";
 import About from "./home/about";
-// import Contact from "./home/contact";
+import Contact from "./home/contact";
+import FooterHome from "./home/footer";
 import Script from "next/script";
 
 export default function Home() {
@@ -48,7 +49,8 @@ export default function Home() {
 
       <Homepage />
       <About />
-      {/* <Contact /> */}
+      <Contact />
+      <FooterHome />
     </>
   );
 }

@@ -15,10 +15,11 @@
     background: url(./homepagebg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    transition: all 1.5s;
+    transition-delay: 0.9s;
 }
 
 .sectionWrapper:hover,

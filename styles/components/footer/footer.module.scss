@@ -1,0 +1,40 @@
+@import '@/styles/abstract/mixin';
+@import '@/styles/abstract/variable';
+
+.footer {
+    @include sectionWrapper;
+    height: 30vh;
+    background-color: $secondary-color;
+}
+
+.name {
+    border-right: 2px solid $primary-color;
+    grid-row: 1/ span 28;
+    grid-column: 1/ span 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name h1 {
+    color: $primary-color;
+    font-family: $primary-font;
+    font-size: 1.8em;
+    font-weight: bolder;
+}
+
+.name p {
+    color: gray;
+    font-family: $primary-font;
+    font-size: 1em;
+    font-weight: 100;
+}
+
+.info {
+    border-right: 2px solid white;
+    grid-column: 4 /span 6;
+    grid-row: 1/ span 28;
+    display: flex;
+
+}

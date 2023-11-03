@@ -1,0 +1,157 @@
+@import "@/styles/abstract/mixin";
+@import "@/styles/abstract/variable";
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text&display=swap");
+
+.about {
+    @include section;
+    justify-items: center;
+    column-gap: 1em;
+}
+
+.sectionWrapper {
+    @include sectionWrapper;
+    column-gap: 1em;
+}
+
+
+.heading {
+
+    font-family: $primary-font;
+    font-size: 0.9em;
+    font-weight: 100;
+    letter-spacing: 5px;
+    margin: 10px;
+    margin-left: 65px;
+    grid-column: 6/ span 9;
+    grid-row: 10 / span 20;
+    color: $secondary-color;
+}
+
+.content {
+    font-size: 3em;
+    grid-column: 4/ span 15;
+    grid-row: 15 / span 14;
+    color: $secondary-color;
+    font-family: $primary-font;
+    margin-left: 30px;
+    margin-right: 100px;
+}
+
+
+.card5 {
+    background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 200px;
+    grid-row: 49/ span 40;
+    grid-column: 9/ span 2;
+    cursor: pointer;
+    @include sectionWrapper;
+    transition: all ease-in-out 0.5s;
+    z-index: 2;
+    border: 5px solid white;
+}
+
+.card6 {
+    background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 200px;
+    grid-row: 18/ span 65;
+    grid-column: 10/ span 3;
+    cursor: pointer;
+    @include sectionWrapper;
+    transition: all ease-in-out 0.5s;
+}
+
+.card6:hover,
+.card6:focus,
+.card5:hover,
+.card5:focus {
+    -ms-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.abouttext1 {
+    font-family: $primary-font;
+    font-weight: lighter;
+    color: $primary-color;
+    grid-column: 2;
+    grid-row: 18;
+}
+
+.aboutpara1 {
+    font-family: $primary-font;
+    font-size: 0.7em;
+    font-weight: lighter;
+    color: $primary-color;
+    grid-column: 2/ span 9;
+    grid-row: 22;
+}
+
+.point1 {
+    // background-color: red;
+    grid-row: 33 /span 15;
+    grid-column: 3 /span 5;
+}
+
+.point2 {
+    // background-color: red;
+    grid-row: 50 /span 15;
+    grid-column: 3 /span 5;
+}
+
+.point3 {
+    // background-color: red;
+    grid-row: 67 /span 15;
+    grid-column: 3 /span 5;
+}
+
+.pointin1 {
+    height: 30px;
+    width: 40px;
+    background-color: skyblue;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pointin2 {
+    height: 30px;
+    width: 40px;
+    background-color: salmon;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pointin3 {
+    height: 30px;
+    width: 40px;
+    background-color: peachpuff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.num {
+    color: $primary-color;
+    font-family: $primary-font;
+}
+
+.head {
+    font-family: $primary-font;
+    font-weight: 900;
+    padding: 3px;
+}
+
+.para {
+    font-weight: $primary-font;
+    padding-left: 4px;
+}
