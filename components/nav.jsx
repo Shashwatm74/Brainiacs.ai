@@ -3,12 +3,15 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '@/styles/components/nav.module.scss';
 import navtoggle from '@/components/navtoggle.js';
-import Image from 'next/image';
-import menuImage from '@/assets/images/menu.png';
-import pfp from '@/assets/images/defaultPfp.png';
-
+import supabase from '@/lib/db/supabase';
+import { useAuth } from '@/lib/hooks/AuthHook';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
+    const signOut = async () => {
+        await supabase.auth.signOut()
+    }
     return (
         <>
 
@@ -24,11 +27,11 @@ const Nav = () => {
                     <nav className={styles.nav2} id='SecondaryNav' data-visible="false">
                         <ul >
                             {/* this part of the navbar activates before the user logs in the website  */}
-                            <Link className={styles.a} href="/signup" replace onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele1" className={styles.listElement}>
-                                    Sign up
-                                </li>
-                            </Link>
+                            <button className={styles.a} onClick={signOut} >
+                                <h1>
+                                    Sign out
+                                </h1>
+                            </button>
 
                             <Link className={styles.a} href="/login" replace onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
                                 <li id="listele2" className={styles.listElement}>
@@ -36,38 +39,10 @@ const Nav = () => {
                                 </li>
                             </Link>
                             {/* this part of the navbar activates when the user logs in the website  */}
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele3" className={styles.listElementonlogin}>
-                                    Function1
-                                </li>
-                            </Link>
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele4" className={styles.listElementonlogin}>
-                                    Function2
-                                </li>
-                            </Link>
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele5" className={styles.listElementonlogin}>
-                                    Function3
-                                </li>
-                            </Link>
-
-                            <Link className={styles.a} href="/" replace login="false" onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele6" className={styles.listElementonlogin}>
-                                    Function4
-                                </li>
-                            </Link>
 
                             <Link className={styles.a} href="/" replace onClick={() => {
                                 document.getElementById("SecondaryNav").setAttribute("data-visible", "false");
                                 document.getElementById("NavToggle2")?.setAttribute("data-visible", "false");
-                                document.getElementById("listele1").setAttribute("login", "false");
-                                document.getElementById("listele2").setAttribute("login", "false");
-                                document.getElementById("listele3").setAttribute("login", "false");
-                                document.getElementById("listele4").setAttribute("login", "false");
-                                document.getElementById("listele5").setAttribute("login", "false");
-                                document.getElementById("listele6").setAttribute("login", "false");
-                                document.getElementById("listele7").setAttribute("login", "false");
                             }} >
                                 <li id="listele7" className={styles.listElementonlogin}>
                                     Sign out
