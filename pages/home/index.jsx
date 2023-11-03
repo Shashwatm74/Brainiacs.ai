@@ -22,9 +22,9 @@ function HomePage() {
             <p> A one line tag line a bit longer hehe</p>
           </div>
 
-          <div className={styles.homeImage}>
+          {/* <div className={styles.homeImage}>
             <Image src={logo} alt="logo" layout="responsive" />
-          </div>
+          </div> */}
 
           <div className={styles.btnContainer}>
             <button
