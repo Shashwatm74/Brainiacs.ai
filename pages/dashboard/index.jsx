@@ -5,13 +5,23 @@ function Dashboard() {
     return (
         <>
             <useAuth>
-                <section className={styles.navbar} >
-                    <h1>travelEase</h1>
-                    <div className={styles.flexele}> 
-                         <h3>Home</h3>
-                         <h3>Cart</h3>
-                         <h3>Contact us</h3>
+                <section classname={styles.mainsec}>
+                    <section className={styles.navbar}>
+                    <h1 id={styles.logo}>TravelEase</h1>
+                    
+                    <div > 
+                         <ul className={styles.listt}>
+                            <li>Home</li>
+                            <li>Cart</li>
+                            <li>Contact us</li>
+                         </ul>
                     </div>
+                    <div className={styles.sub}>
+                        <h3>signup</h3>
+                        <h3>signout</h3>
+                    </div>
+            
+                </section>
                 </section>
             </useAuth>
         </>
