@@ -18,8 +18,8 @@ function HomePage() {
 
 
           <div className={styles.title}>
-            <h1 >Title.ai</h1>
-            <p> A one line tag line a bit longer hehe</p>
+            <h1>Title.ai</h1>
+            <p>A one line tag line a bit longer hehe</p>
           </div>
 
           {/* <div className={styles.homeImage}>
@@ -38,7 +38,7 @@ function HomePage() {
 
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 }

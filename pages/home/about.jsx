@@ -16,11 +16,11 @@ function About() {
   // const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const contRef = useRef(null);
-  const card1Ref = useRef(null);
-  const card2Ref = useRef(null);
-  const card3Ref = useRef(null);
-  const card4Ref = useRef(null);
-  const card5Ref = useRef(null);
+  // const card1Ref = useRef(null);
+  // const card2Ref = useRef(null);
+  // const card3Ref = useRef(null);
+  // const card4Ref = useRef(null);
+  // const card5Ref = useRef(null);
 
 
 
@@ -67,116 +67,116 @@ function About() {
     );
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      card1Ref.current,
-      {
-        autoAlpha: 0,
-        y: 10,
-      },
-      {
-        autoAlpha: 1,
-        duration: 0.5,
-        delay: 0,
-        ease: "power2.inOut",
-        y: 0,
-        scrollTrigger: {
-          // markers: true, //can be used to debug
-          trigger: card1Ref.current,
-          start: "top center+=90",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
-  useEffect(() => {
-    gsap.fromTo(
-      card2Ref.current,
-      {
-        autoAlpha: 0,
-        y: 10,
-      },
-      {
-        autoAlpha: 1,
-        duration: 0.5,
-        delay: 0,
-        ease: "power2.inOut",
-        y: 0,
-        scrollTrigger: {
-          // markers: true, //can be used to debug
-          trigger: card2Ref.current,
-          start: "top center+=90",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
-  useEffect(() => {
-    gsap.fromTo(
-      card3Ref.current,
-      {
-        autoAlpha: 0,
-        y: 10,
-      },
-      {
-        autoAlpha: 1,
-        duration: 0.5,
-        delay: 0,
-        ease: "power2.inOut",
-        y: 0,
-        scrollTrigger: {
-          // markers: true, //can be used to debug
-          trigger: card3Ref.current,
-          start: "top center+=90",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
-  useEffect(() => {
-    gsap.fromTo(
-      card4Ref.current,
-      {
-        autoAlpha: 0,
-        y: 10,
-      },
-      {
-        autoAlpha: 1,
-        duration: 0.5,
-        delay: 0,
-        ease: "power2.inOut",
-        y: 0,
-        scrollTrigger: {
-          // markers: true, //can be used to debug
-          trigger: card4Ref.current,
-          start: "top center+=90",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
-  useEffect(() => {
-    gsap.fromTo(
-      card5Ref.current,
-      {
-        autoAlpha: 0,
-        y: 10,
-      },
-      {
-        autoAlpha: 1,
-        duration: 0.5,
-        delay: 0,
-        ease: "power2.inOut",
-        y: 0,
-        scrollTrigger: {
-          // markers: true, //can be used to debug
-          trigger: card5Ref.current,
-          start: "top center+=90",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     card1Ref.current,
+  //     {
+  //       autoAlpha: 0,
+  //       y: 10,
+  //     },
+  //     {
+  //       autoAlpha: 1,
+  //       duration: 0.5,
+  //       delay: 0,
+  //       ease: "power2.inOut",
+  //       y: 0,
+  //       scrollTrigger: {
+  //         // markers: true, //can be used to debug
+  //         trigger: card1Ref.current,
+  //         start: "top center+=90",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
+  // }, []);
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     card2Ref.current,
+  //     {
+  //       autoAlpha: 0,
+  //       y: 10,
+  //     },
+  //     {
+  //       autoAlpha: 1,
+  //       duration: 0.5,
+  //       delay: 0,
+  //       ease: "power2.inOut",
+  //       y: 0,
+  //       scrollTrigger: {
+  //         // markers: true, //can be used to debug
+  //         trigger: card2Ref.current,
+  //         start: "top center+=90",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
+  // }, []);
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     card3Ref.current,
+  //     {
+  //       autoAlpha: 0,
+  //       y: 10,
+  //     },
+  //     {
+  //       autoAlpha: 1,
+  //       duration: 0.5,
+  //       delay: 0,
+  //       ease: "power2.inOut",
+  //       y: 0,
+  //       scrollTrigger: {
+  //         // markers: true, //can be used to debug
+  //         trigger: card3Ref.current,
+  //         start: "top center+=90",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
+  // }, []);
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     card4Ref.current,
+  //     {
+  //       autoAlpha: 0,
+  //       y: 10,
+  //     },
+  //     {
+  //       autoAlpha: 1,
+  //       duration: 0.5,
+  //       delay: 0,
+  //       ease: "power2.inOut",
+  //       y: 0,
+  //       scrollTrigger: {
+  //         // markers: true, //can be used to debug
+  //         trigger: card4Ref.current,
+  //         start: "top center+=90",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
+  // }, []);
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     card5Ref.current,
+  //     {
+  //       autoAlpha: 0,
+  //       y: 10,
+  //     },
+  //     {
+  //       autoAlpha: 1,
+  //       duration: 0.5,
+  //       delay: 0,
+  //       ease: "power2.inOut",
+  //       y: 0,
+  //       scrollTrigger: {
+  //         // markers: true, //can be used to debug
+  //         trigger: card5Ref.current,
+  //         start: "top center+=90",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
+  // }, []);
 
 
 
@@ -186,56 +186,61 @@ function About() {
         <div className={styles.sectionWrapper}>
           <div ref={headingRef} className={styles.heading}>
 
-            About Heading
+            Cities Not to be Missed
 
           </div>
           <div ref={contRef} className={styles.content}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore natus animi voluptatibus dicta beatae hic dignissimos quia
-            ut distinctio autem explicabo omnis soluta cumque ipsa earum deleniti, reprehenderit voluptates enim. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Omnis cupiditate quod quos ducimus? Praesentium iusto quaerat quas quisquam numquam aliquam dolore?
-            Et, reiciendis fuga quae odit natus officiis voluptas inventore.
-
+            Discover incredible accommodation options in the heart of the city
 
           </div>
-          {/* /////////////////////////////////////////// */}
-          <Link ref={card1Ref} className={styles.linkcard1} href="/" replace>
-            <div className={styles.card1} style={{ opacity: 1, visibility: "visible" }}>
-              Function1
-            </div>
-            <Image className={styles.aboutimg} src={aboutimg1} alt="aboutimg1" height={1000} />
-          </Link>
-
-          {/* /////////////////////////////////////////// */}
-          <Link ref={card2Ref} className={styles.linkcard2} href="/" replace>
-            <div className={styles.card2} style={{ opacity: 1, visibility: "visible" }}>
-              Function2
-            </div>
-            <Image className={styles.aboutimg} src={aboutimg2} alt="aboutimg1" height={1000} />
-          </Link>
-          {/* /////////////////////////////////////////// */}
-          <Link ref={card3Ref} className={styles.linkcard3} href="/" replace>
-            <div className={styles.card3} style={{ opacity: 1, visibility: "visible" }}>
-              Function3
-            </div>
-            <Image className={styles.aboutimg} src={aboutimg3} alt="aboutimg1" height={1000} />
-          </Link>
-
-          {/* /////////////////////////////////////////// */}
-          <Link ref={card4Ref} className={styles.linkcard4} href="/" replace>
-            <div className={styles.card4} style={{ opacity: 1, visibility: "visible" }}>
-              Function4
-            </div>
-            <Image className={styles.aboutimg} src={aboutimg4} alt="aboutimg1" height={1000} />
-          </Link>
-          {/* /////////////////////////////////////////// */}
-
-          {/* <Link className={styles.card5} href="/document_review" replace>
-            <div ref={card5Ref} className={styles.card5}>
-              Document Review
-            </div>
-          </Link>
-          /////////////////////////////////////////// */}
-
+          <div className={styles.card1}>
+            <h1 className={styles.abouttext1}>
+              hello
+            </h1>
+            <p className={styles.aboutpara1}>
+              anything you wanna put here
+            </p>
+          </div>
+          <div className={styles.card2}>
+            <h1 className={styles.abouttext2}>
+              hello
+            </h1>
+            <p className={styles.aboutpara2}>
+              anything you wanna put here
+            </p>
+          </div>
+          <div className={styles.card3}>
+            <h1 className={styles.abouttext1}>
+              hello
+            </h1>
+            <p className={styles.aboutpara1}>
+              anything you wanna put here
+            </p>
+          </div>
+          <div className={styles.card4}>
+            <h1 className={styles.abouttext1}>
+              hello
+            </h1>
+            <p className={styles.aboutpara1}>
+              anything you wanna put here
+            </p>
+          </div>
+          <div className={styles.card5}>
+            <h1 className={styles.abouttext1}>
+              hello
+            </h1>
+            <p className={styles.aboutpara1}>
+              anything you wanna put here
+            </p>
+          </div>
+          <div className={styles.card6}>
+            <h1 className={styles.abouttext1}>
+              hello
+            </h1>
+            <p className={styles.aboutpara1}>
+              anything you wanna put here
+            </p>
+          </div>
         </div>
 
       </section>

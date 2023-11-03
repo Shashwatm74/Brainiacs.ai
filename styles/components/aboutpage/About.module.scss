@@ -18,104 +18,136 @@
 .heading {
 
   font-family: $primary-font;
-  font-size: 5em;
+  font-size: 3em;
+  font-weight: 900;
   margin: 20px;
   margin-left: 85px;
-  grid-column: 1/ span 6;
+  grid-column: 4/ span 9;
   grid-row: 7 / span 20;
   color: $secondary-color;
 }
 
 .content {
-  grid-column: 1/ span 12;
-  grid-row: 26 / span 14;
+  grid-column: 4/ span 15;
+  grid-row: 20 / span 14;
   color: $secondary-color;
   font-family: $primary-font;
   margin-left: 100px;
   margin-right: 100px;
 }
 
-.card1,
-.card2,
-.card3,
-.card4,
-.card5 {
-  opacity: 1;
-  visibility: visible;
-  position: absolute;
-  margin-top: 250px;
-  width: 13em;
-  margin-left: 0px;
-  border-radius: 5px;
-  text-decoration: none;
-  color: $secondary-color;
-  font-family: $primary-font;
-  // background: linear-gradient(to top, black, white 100%);
-}
-
 .card1 {
-  grid-row: 45/span 35;
-  grid-column: 2/span 2;
+  background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  grid-row: 34/ span 25;
+  grid-column: 3/ span 4;
+  cursor: pointer;
+  @include sectionWrapper;
+  transition: all ease-in-out 0.5s;
 }
 
 .card2 {
-  grid-row: 45/span 35;
-  grid-column: 5/span 2;
-
+  background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  grid-row: 34/ span 52;
+  grid-column: 7/ span 2;
+  cursor: pointer;
+  @include sectionWrapper;
+  transition: all ease-in-out 0.5s;
 }
 
 .card3 {
-  grid-row: 45/span 35;
-  grid-column: 8/span 2;
-  visibility: visible;
-  opacity: 1;
-
+  background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  grid-row: 61/ span 25;
+  grid-column: 3/ span 2;
+  cursor: pointer;
+  @include sectionWrapper;
+  transition: all ease-in-out 0.5s;
 }
 
 .card4 {
-  grid-row: 45/span 35;
-  grid-column: 11/span 2;
-
+  background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  grid-row: 61/ span 25;
+  grid-column: 5/ span 2;
+  cursor: pointer;
+  @include sectionWrapper;
+  transition: all ease-in-out 0.5s;
 }
 
-.linkcard1,
-.linkcard2,
-.linkcard3,
-.linkcard4,
-.linkcard5 {
-  width: 13em;
-  margin-left: 0px;
-  border-radius: 5px;
-  text-decoration: none;
-  color: $secondary-color;
+.card5 {
+  background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  grid-row: 61/ span 25;
+  grid-column: 9/ span 2;
+  cursor: pointer;
+  @include sectionWrapper;
+  transition: all ease-in-out 0.5s;
+}
+
+.card6 {
+  background: url(./sukant-sharma-kW7tfuBQ3TA-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  grid-row: 34/ span 25;
+  grid-column: 9/ span 2;
+  cursor: pointer;
+  @include sectionWrapper;
+  transition: all ease-in-out 0.5s;
+}
+
+.abouttext1 {
   font-family: $primary-font;
-  background: linear-gradient(to top, black, white 100%);
-  transform: translate(-50px, 0);
+  font-weight: lighter;
+  color: $primary-color;
+  grid-column: 2;
+  grid-row: 18;
 }
 
-.linkcard1 {
-  grid-row: 45/span 35;
-  grid-column: 2/span 2;
+.aboutpara1 {
+  font-family: $primary-font;
+  font-size: 0.7em;
+  font-weight: lighter;
+  color: $primary-color;
+  grid-column: 2/ span 9;
+  grid-row: 22;
 }
 
-.linkcard2 {
-  grid-row: 45/span 35;
-  grid-column: 5/span 2;
-
+.abouttext2 {
+  font-family: $primary-font;
+  font-weight: lighter;
+  color: $primary-color;
+  grid-column: 2;
+  grid-row: 45;
 }
 
-.linkcard3 {
-  grid-row: 45/span 35;
-  grid-column: 8/span 2;
-
+.aboutpara2 {
+  font-family: $primary-font;
+  font-size: 0.7em;
+  font-weight: lighter;
+  color: $primary-color;
+  grid-column: 2/ span 9;
+  grid-row: 49;
 }
 
-.linkcard4 {
-  grid-row: 45/span 35;
-  grid-column: 11/span 2;
-}
-
-.aboutimg {
-  height: 13em;
-  width: 13em;
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover,
+.card5:hover,
+.card6:hover {
+  border-radius: 0px;
+  transition: all ease-in-out 0.5s;
 }
