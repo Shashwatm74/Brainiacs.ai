@@ -9,8 +9,51 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Nav = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(true);
+    const router = useRouter();
+
+    const LoginWithSupa = async (username, password) => {
+        const res = await supabase.auth.signInWithPassword({
+            email: username,
+            password: password,
+        });
+
+        if (res.error) {
+            console.log("err");
+            console.log(res.error.message);
+        }
+
+        if (res.data.user?.aud === 'authenticated') {
+            router.push("/");
+        }
+    };
+
+    useEffect(() => {
+        const CheckLogin = async () => {
+            const ses = await supabase.auth.getSession();
+            if (ses.data.session) {
+                router.push('/dashboard');
+            }
+        };
+        CheckLogin();
+        setLoading(false);
+    }, [supabase]);
+
+    const signInWithGoogle = async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: 'google'
+        })
+    }
+
+    if (loading) {
+        return (<>...Loading</>)
+    }
+
     const signOut = async () => {
         await supabase.auth.signOut()
+        router.push("/");
     }
     return (
         <>
@@ -27,27 +70,23 @@ const Nav = () => {
                     <nav className={styles.nav2} id='SecondaryNav' data-visible="false">
                         <ul >
                             {/* this part of the navbar activates before the user logs in the website  */}
-                            <button className={styles.a} onClick={signOut} >
-                                <h1>
-                                    Sign out
-                                </h1>
+                            <button className={styles.btn} onClick={signOut} >
+                                Sign out
                             </button>
 
-                            <Link className={styles.a} href="/login" replace onClick={() => { document.getElementById("SecondaryNav").setAttribute("data-visible", "false"); document.getElementById("NavToggle2")?.setAttribute("data-visible", "false"); }} >
-                                <li id="listele2" className={styles.listElement}>
-                                    Login
-                                </li>
-                            </Link>
+                            <button className={styles.btn} onClick={signInWithGoogle} >
+                                Login
+                            </button>
                             {/* this part of the navbar activates when the user logs in the website  */}
 
-                            <Link className={styles.a} href="/" replace onClick={() => {
+                            {/* <Link className={styles.a} href="/" replace onClick={() => {
                                 document.getElementById("SecondaryNav").setAttribute("data-visible", "false");
                                 document.getElementById("NavToggle2")?.setAttribute("data-visible", "false");
                             }} >
                                 <li id="listele7" className={styles.listElementonlogin}>
                                     Sign out
                                 </li>
-                            </Link>
+                            </Link> */}
                         </ul>
 
                     </nav>
@@ -82,7 +121,7 @@ const Nav = () => {
 
 
             </header >
-            <script src={navtoggle} defer></script>
+            {/* <script src={navtoggle} defer></script> */}
         </>
     )
 }
