@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   if (dashBoard) {
     return (
       <>
-        <Nav />
+        {/* <Nav /> */}
         <Component {...pageProps} />
         {/* <Sidebar /> */}
         <Footer />
